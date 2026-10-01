@@ -1,0 +1,9 @@
+.build/
+.swiftpm/
+DerivedData/
+dist/
+.DS_Store
+*.log
+agents.json
+data/tasks.jsonl
+*.secret.json

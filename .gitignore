@@ -1,0 +1,15 @@
+.DS_Store
+agent-island-app/.build/
+agent-island-app/.swiftpm/
+agent-island-app/DerivedData/
+agent-island-app/dist/
+*.log
+agents.json
+data/tasks.jsonl
+*.secret.json
+private-themes/
+promo-private/
+skills/
+DIAGNOSIS_*.md
+FIX_*.md
+INTEGRATION_AUDIT_*.md

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5c84b">
+  <meta name="description" content="Agent Island：可自定义主题的 macOS 多 Agent 任务看板。">
+  <title>Agent Island · 可自定义主题的 Agent 看板</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="nav">
+      <a class="brand" href="#top"><span class="brand-mark">✳</span>Agent Island</a>
+      <span class="pill">OPEN SOURCE CORE</span>
+    </header>
+
+    <section id="top" class="hero">
+      <div>
+        <p class="eyebrow">MACOS · MULTI-AGENT TASK BOARD</p>
+        <h1>把多个 Agent 的任务状态，收进一枚小胶囊。</h1>
+        <p class="lede">看板负责统一状态、证据和提醒；主题负责颜色、图形和角色。你可以导入自己拥有授权的任意形象。</p>
+        <div class="actions">
+          <a class="button dark" href="../README.md">查看源码 ↗</a>
+          <a class="button light" href="#themes">了解主题系统 ↓</a>
+        </div>
+      </div>
+      <div class="capsule-demo" aria-label="任务状态胶囊示意">
+        <div class="capsule-top"><span class="signal"></span><strong>3 个任务需要关注</strong><span class="time">08:42</span></div>
+        <div class="task"><span class="dot blocked"></span><span><b>合同摘要整理</b><small>等待确认 · 本地只读</small></span><em>等你处理</em></div>
+        <div class="task"><span class="dot running"></span><span><b>重构任务列表</b><small>运行中 · 有活动证据</small></span><em>运行中</em></div>
+        <div class="task"><span class="dot queued"></span><span><b>批量生成封面</b><small>排队中 · 标准连接</small></span><em>排队中</em></div>
+      </div>
+    </section>
+
+    <div class="ticker"><span>只读优先</span><span>状态有证据</span><span>断连会说清楚</span><span>主题可替换</span></div>
+
+    <section class="section" id="themes">
+      <p class="eyebrow">THEME PACKS</p>
+      <h2>看板和视觉角色分开。</h2>
+      <div class="theme-grid">
+        <article><span class="theme-icon blue">◌</span><h3>通用核心</h3><p>状态归一化、来源健康、通知去重和连接器契约，全部由开源代码提供。</p></article>
+        <article><span class="theme-icon yellow">✦</span><h3>中性默认主题</h3><p>公开仓库只包含颜色、几何图形和占位文案，不包含任何第三方 IP 素材。</p></article>
+        <article><span class="theme-icon pink">＋</span><h3>用户自定义角色</h3><p>你可以在本地导入自己有权使用的熊、猫、机器人或品牌形象。</p></article>
+      </div>
+    </section>
+
+    <section class="section state-section">
+      <div class="section-heading"><div><p class="eyebrow">STATUS CONTRACT</p><h2>视觉可以换，状态语义不变。</h2></div><p>角色只负责表达气氛，状态文字、颜色和证据等级共同承担信息，不依赖某一个 IP。</p></div>
+      <div class="states"><span class="state queued"><i></i>排队中</span><span class="state running"><i></i>运行中</span><span class="state blocked"><i></i>等你确认</span><span class="state done"><i></i>已完成</span><span class="state failed"><i></i>失败了</span></div>
+    </section>
+
+    <section class="closing">
+      <div><p class="eyebrow">BUILD YOUR OWN THEME</p><h2>代码开源，角色由你决定。</h2><p>仓库提供主题模板和素材接口。请只导入你拥有授权的图片、名称与 Logo。</p></div>
+      <a class="button dark" href="THEME_TEMPLATE.md">阅读主题模板 ↗</a>
+    </section>
+
+    <footer>Agent Island · 开源核心与可替换主题系统</footer>
+  </main>
+</body>
+</html>

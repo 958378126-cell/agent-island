@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  swift:
+    runs-on: macos-14
+    defaults:
+      run:
+        working-directory: agent-island-app
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build release
+        run: swift build -c release
+      - name: Run regression checks
+        run: swift run -c release agent-island-tests
+      - name: Run selftest
+        run: swift run -c release agent-island-selftest
+      - name: Check for local paths and credentials
+        run: |
+          ! rg -n '/Users/|/home/|BEGIN (RSA|OPENSSH) PRIVATE KEY|ghp_[A-Za-z0-9]+' --glob '!promo/assets/*' .
