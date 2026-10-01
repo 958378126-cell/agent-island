@@ -18,6 +18,8 @@ jobs:
         run: swift run -c release agent-island-tests
       - name: Run selftest
         run: swift run -c release agent-island-selftest
-      - name: Check for local paths and credentials
+      - name: Check public tree for local paths and credentials
+        working-directory: .
         run: |
-          ! rg -n '/Users/|/home/|BEGIN (RSA|OPENSSH) PRIVATE KEY|ghp_[A-Za-z0-9]+' --glob '!promo/assets/*' .
+          ! rg -n '/Users/|/home/|BEGIN (RSA|OPENSSH) PRIVATE KEY|ghp_[A-Za-z0-9]+' \
+            --glob '!agent-island-app/.build/**' .
