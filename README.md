@@ -1,21 +1,56 @@
-# Agent Island · 可自定义主题的 Agent 看板
+# Agent Island
 
-Agent Island 是 macOS 顶部的多 Agent 任务看板项目。公开版本只包含通用看板核心、状态契约、连接器示例和可替换主题接口，不内置任何第三方 IP 素材。仓库分为两部分：
+一个无第三方 IP 素材的 macOS Agent 任务胶囊。公开仓库包含可运行的桌面 App、任务状态核心、只读连接器和可替换主题接口；默认头像使用系统 SF Symbols，用户可以在自己的私有主题层替换成有授权的素材。
 
-- [`agent-island-app/`](agent-island-app/)：Swift 看板核心、状态契约、示例事件、支持矩阵和 CI。
-- [`promo/`](promo/)：不含第三方 IP 的静态宣传页、主题模板和交互式状态演示。
+## 快速运行
 
-## 快速验证
+要求：macOS 15+、Swift 6。
 
 ```sh
 cd agent-island-app
 swift build -c release
-swift run -c release agent-island-tests
-swift run -c release agent-island-selftest
+./.build/release/AgentIsland --selftest --root .
+./.build/release/AgentIsland --smoke 3 --demo
+./Scripts/make-app.sh
+open ./dist/AgentIsland.app
 ```
 
-核心包会验证：过期运行快照转为 `unknown / stale`；进程存在不能伪造成功或失败；取消保持独立状态；等待确认、成功和失败提醒按状态转移去重；历史导入不补发提醒。
+正常启动后，App 使用以下本地文件：
 
-完整说明见 [`agent-island-app/README.md`](agent-island-app/README.md)、[`TECHNICAL_PLAN_V2.md`](TECHNICAL_PLAN_V2.md) 和 [`agent-island-app/RELEASE_PLAN.md`](agent-island-app/RELEASE_PLAN.md)。
+- `~/Library/Application Support/AgentIsland/tasks.jsonl`
+- `~/Library/Application Support/AgentIsland/agents.json`
+- `~/Library/Application Support/AgentIsland/position.json`
 
-在浏览器打开 [`promo/index.html`](promo/index.html) 查看公开版交互演示。主题模板见 [`promo/THEME_TEMPLATE.md`](promo/THEME_TEMPLATE.md)。当前仓库尚未包含可签名的完整 `.app` 和已通过真实桌面任务验收的全部连接器；宣传页不会把虚构任务当成真实同步结果。
+`--demo` 只加载仓库内的虚构演示事件，不会用于普通启动。
+
+## Codex 监控
+
+App 以只读方式观察 `~/.codex/sessions/**/*.jsonl`，识别 `task_started` / `turn_started` 到终态事件之间的活动回合；同时兼容 Codex Desktop 的 `codex app-server` 进程回退识别。它不会读取或发送提示词，也不会修改 Codex 会话。
+
+冒烟测试会验证当前构建可以发现活动 Codex 回放文件，但不同 Codex 版本、权限设置和会话格式仍可能影响可见性。
+
+## 接入其他 Agent
+
+看板通过三种只读连接方式接入自定义 Agent：HTTP JSON、JSONL 文件、命令 JSONL。协议和示例见 [`agent-island-app/CONNECTORS.md`](agent-island-app/CONNECTORS.md)，配置模板见 [`agent-island-app/config/`](agent-island-app/config/)。
+
+## 主题与授权边界
+
+公开仓库不包含任何第三方角色、熊图、Logo 或名称素材。代码许可证不自动授权用户导入的图片和主题；请把私有素材放在仓库外或被 `.gitignore` 忽略的目录中，并单独确认授权范围。
+
+完整主题目录格式见 [`agent-island-app/themes/README.md`](agent-island-app/themes/README.md)。公开 App 默认使用 SF Symbols，也支持从用户本机主题目录加载自有图片。
+
+宣传页位于 [`promo/`](promo/)，公开版不含第三方 IP。带私有素材的宣传材料只能保留在本机私有目录，不要提交到 GitHub。
+
+## 当前边界
+
+公开 App 已有完整胶囊、展开面板、任务文件监听、Codex 本地回放识别、连接器配置和中性头像，但尚未提供签名/公证的发布包，也没有承诺覆盖所有厂商 Agent 的内部状态。真实接入必须按来源逐项验收。
+
+## 测试
+
+```sh
+cd agent-island-app
+swift build -c release
+./.build/release/agent-island-tests
+./.build/release/agent-island-selftest
+./.build/release/AgentIsland --selftest --root .
+```

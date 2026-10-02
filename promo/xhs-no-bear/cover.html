@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1080, initial-scale=1">
+  <title>Agent Island · 小红书无熊版封面</title>
+  <style>
+    :root { --ink:#201d1a; --paper:#fffaf0; --yellow:#f5c84b; --orange:#e76b46; --blue:#8bd9e8; --purple:#b9a6ef; --green:#75c892; }
+    * { box-sizing:border-box; }
+    html, body { width:1080px; height:1440px; margin:0; overflow:hidden; }
+    body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",sans-serif; color:var(--ink); background:var(--paper); }
+    .sheet { position:relative; width:1080px; height:1440px; padding:76px 78px 70px; overflow:hidden; border:12px solid var(--ink); background:radial-gradient(circle at 93% 3%, #f5c84b44 0 160px, transparent 161px), var(--paper); }
+    .top { display:flex; align-items:center; justify-content:space-between; gap:24px; height:62px; }
+    .brand { display:flex; align-items:center; gap:15px; font-size:27px; font-weight:900; letter-spacing:-.03em; }
+    .mark { display:grid; place-items:center; width:52px; height:52px; border:3px solid var(--ink); border-radius:17px; background:var(--yellow); box-shadow:4px 4px 0 var(--ink); font-size:30px; transform:rotate(-6deg); }
+    .tag { padding:12px 22px; border:2px solid var(--ink); border-radius:999px; background:#fff; font-size:20px; font-weight:850; white-space:nowrap; }
+    .eyebrow { margin:100px 0 24px; font-size:24px; font-weight:900; letter-spacing:.13em; color:#6c5e3c; }
+    h1 { margin:0; font-size:104px; line-height:1.13; letter-spacing:-.075em; font-weight:1000; }
+    h1 em { color:var(--orange); font-style:normal; }
+    .lede { margin:28px 0 0; max-width:830px; font-size:30px; line-height:1.45; font-weight:700; color:#544c42; }
+    .visual { position:relative; margin-top:55px; height:495px; border:4px solid var(--ink); border-radius:40px; background:var(--yellow); box-shadow:10px 11px 0 var(--ink); overflow:hidden; }
+    .orbit { position:absolute; width:530px; height:530px; right:-100px; top:-225px; border:3px dashed #201d1a45; border-radius:50%; }
+    .star { position:absolute; top:22px; right:34px; font-size:64px; color:#fff9e7; transform:rotate(15deg); }
+    .capsule { position:absolute; left:58px; right:58px; top:55px; height:91px; display:flex; align-items:center; gap:20px; padding:0 28px; border:3px solid var(--ink); border-radius:30px; background:#2a2724; color:#fff; box-shadow:6px 7px 0 #201d1a55; font-size:28px; font-weight:900; }
+    .capsule .light { width:16px; height:16px; border-radius:50%; background:#f5c84b; box-shadow:0 0 0 7px #f5c84b36; }
+    .capsule small { margin-left:auto; color:#ffe18b; font-size:23px; }
+    .panel { position:absolute; left:100px; right:100px; top:182px; padding:24px 28px 10px; border:3px solid var(--ink); border-radius:25px; background:#fffdf8; box-shadow:7px 8px 0 #201d1a55; transform:rotate(-1.3deg); }
+    .panelhead { display:flex; justify-content:space-between; align-items:center; padding:0 0 15px; border-bottom:2px solid #201d1a25; }
+    .panelhead strong { font-size:24px; }
+    .panelhead span { color:#776c60; font-size:17px; font-weight:700; }
+    .row { display:flex; align-items:center; gap:15px; padding:16px 2px; border-bottom:2px dashed #201d1a24; font-size:23px; font-weight:800; }
+    .row:last-child { border-bottom:0; }
+    .dot { width:16px; height:16px; flex:none; border-radius:50%; background:var(--purple); }
+    .dot.b { background:#efb431; }.dot.r { background:#52cadd; }
+    .row .status { margin-left:auto; padding:6px 12px; border:2px solid var(--ink); border-radius:999px; background:#fff2bd; font-size:18px; white-space:nowrap; }
+    .row .status.running { background:#d9f7fb; }.row .status.queued { background:#eee8ff; }
+    .bottom { margin-top:58px; display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .fact { min-height:98px; padding:18px 20px; border:2px solid var(--ink); border-radius:21px; background:#fff; box-shadow:4px 5px 0 var(--ink); }
+    .fact span { display:block; margin-bottom:7px; font-size:18px; color:#775b31; font-weight:900; }
+    .fact strong { display:block; font-size:22px; line-height:1.3; }
+    .foot { margin-top:34px; display:flex; justify-content:space-between; align-items:center; gap:20px; color:#6f665d; font-size:18px; font-weight:700; }
+    .foot b { color:var(--ink); }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <div class="top"><div class="brand"><span class="mark">✳</span>AGENT ISLAND</div><span class="tag">我的开源项目记录</span></div>
+    <p class="eyebrow">MACOS · MULTI-AGENT</p>
+    <h1>我给多个 Agent<br>做了个<em>任务看板</em></h1>
+    <p class="lede">任务状态、证据来源和提醒逻辑，<br>都收进 Mac 顶部的小胶囊。</p>
+    <div class="visual" aria-label="Agent Island 界面示意图">
+      <span class="orbit"></span><span class="star">✦</span>
+      <div class="capsule"><span class="light"></span><span>3 个任务需要关注</span><small>08:42</small></div>
+      <div class="panel">
+        <div class="panelhead"><strong>Agent 任务一览</strong><span>界面示意</span></div>
+        <div class="row"><span class="dot b"></span><span>合同摘要整理</span><span class="status">等你确认</span></div>
+        <div class="row"><span class="dot r"></span><span>重构任务列表</span><span class="status running">运行中</span></div>
+        <div class="row"><span class="dot"></span><span>批量生成封面</span><span class="status queued">排队中</span></div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="fact"><span>已经公开</span><strong>状态核心、示例和主题接口</strong></div>
+      <div class="fact"><span>仍在开发</span><strong>桌面界面和 Agent 连接器</strong></div>
+    </div>
+    <div class="foot"><b>主题可以自行替换</b><span>示意任务均为虚构示例</span></div>
+  </main>
+</body>
+</html>

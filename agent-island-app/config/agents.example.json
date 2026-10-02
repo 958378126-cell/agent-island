@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "connectors": [
+    {
+      "id": "my-agent",
+      "display_name": "My Agent",
+      "type": "http_json",
+      "url": "http://127.0.0.1:8787/tasks",
+      "token_environment": "MY_AGENT_TOKEN",
+      "poll_seconds": 10,
+      "status_map": {
+        "queued": "queued",
+        "working": "running",
+        "success": "done",
+        "error": "failed"
+      },
+      "provenance": "official",
+      "enabled": true
+    },
+    {
+      "id": "local-agent",
+      "display_name": "Local Agent",
+      "type": "jsonl_file",
+      "path": "~/Library/Application Support/LocalAgent/tasks.jsonl",
+      "provenance": "local",
+      "enabled": true
+    },
+    {
+      "id": "cli-agent",
+      "display_name": "CLI Agent",
+      "type": "command_jsonl",
+      "command": "/absolute/path/to/agent-island-adapter",
+      "arguments": [],
+      "timeout_seconds": 15,
+      "max_output_bytes": 1048576,
+      "provenance": "local",
+      "enabled": true
+    }
+  ]
+}

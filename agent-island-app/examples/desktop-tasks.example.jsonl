@@ -1,0 +1,3 @@
+{"ts":"2026-10-02T09:00:00+08:00","agent":"codex","task_id":"demo-codex","title":"整理项目结构","status":"running","note":"演示任务"}
+{"ts":"2026-10-02T09:00:20+08:00","agent":"workbuddy","task_id":"demo-workbuddy","title":"同步待办事项","status":"blocked","note":"等待确认"}
+{"ts":"2026-10-02T09:00:40+08:00","agent":"autoclaw","task_id":"demo-autoclaw","title":"准备数据摘要","status":"queued","note":"演示任务"}

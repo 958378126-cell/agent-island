@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "connectors": [
+    {
+      "id": "kimi-hosted",
+      "display_name": "Kimi Hosted Agent",
+      "type": "command_jsonl",
+      "command": "/absolute/path/to/agent-island-app/adapters/kimi-hosted-sessions.py",
+      "provenance": "official",
+      "poll_seconds": 10,
+      "enabled": true
+    },
+    {
+      "id": "qwen-responses",
+      "display_name": "Qwen Responses",
+      "type": "command_jsonl",
+      "command": "/absolute/path/to/agent-island-app/adapters/qwen-responses.py",
+      "provenance": "official",
+      "poll_seconds": 10,
+      "enabled": true
+    }
+  ]
+}

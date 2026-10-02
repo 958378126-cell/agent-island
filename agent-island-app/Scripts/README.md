@@ -1,3 +1,9 @@
 # Scripts
 
-构建、脱敏和打包脚本放在这里。当前核心包直接使用 Swift Package Manager 命令构建；签名、公证和 `.app` 打包脚本会在桌面 UI 源码和安装验收完成后加入。
+构建和打包脚本放在这里。`make-app.sh` 会把 release 可执行文件包装成未签名的 `.app`；签名、公证和发布渠道仍需单独配置。
+
+```sh
+swift build -c release
+./Scripts/make-app.sh
+open ./dist/AgentIsland.app
+```

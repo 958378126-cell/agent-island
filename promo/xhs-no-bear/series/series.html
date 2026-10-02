@@ -1,0 +1,207 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Agent Island · 无熊版小红书组图</title><style>:root{
+  --ink:#201d1a;--canvas:#fffaf0;--surface:#fffdf7;--ink-2:#514a42;--ink-3:#655d53;
+  --yellow:#f5c84b;--yellow-soft:#ffdf78;--orange:#923518;--blue:#8bd9e8;
+  --purple:#b9a6ef;--green:#a7dda6;--red:#f3aaa0;--line:#201d1a29;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{min-width:1080px;padding:36px 0;display:flex;flex-direction:column;gap:36px;background:#d8d5ce;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.sheet{width:1080px;height:1440px;margin:0 auto;padding:80px 82px 72px;position:relative;overflow:hidden;border:12px solid var(--ink);background:var(--canvas)}
+.sheet.bear{background:#fff9ea}
+.sheet.neutral{background:#fffaf0}
+.page-inner{height:100%;display:flex;flex-direction:column;min-height:0}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:54px;font-size:23px;font-weight:1000;letter-spacing:-.02em}
+.logo{display:flex;align-items:center;gap:14px}
+.logo-mark{display:grid;place-items:center;width:52px;height:52px;flex:none;border:3px solid var(--ink);border-radius:16px;background:var(--yellow);box-shadow:4px 4px 0 var(--ink);transform:rotate(-6deg);font-size:29px}
+.logo-mark img{width:46px;height:46px;object-fit:contain}
+.top-pill{padding:10px 18px;border:2px solid var(--ink);border-radius:999px;background:#fff;font-size:19px;font-weight:850;white-space:nowrap}
+.kicker{margin:60px 0 22px;color:#826031;font-size:24px;font-weight:1000;letter-spacing:.12em}
+h1,h2,h3,p{margin-top:0}
+h1{margin-bottom:24px;font-size:98px;line-height:1.1;letter-spacing:-.07em;font-weight:1000}
+h2{margin-bottom:25px;font-size:74px;line-height:1.14;letter-spacing:-.06em;font-weight:1000}
+h3{font-size:42px;line-height:1.23;letter-spacing:-.045em}
+.accent{color:var(--orange)}
+.lead{margin:0;color:var(--ink-2);font-size:35px;line-height:1.48;font-weight:700;letter-spacing:-.01em}
+.small-lead{font-size:31px;line-height:1.45}
+.footer{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:auto;padding-top:24px;border-top:2px solid var(--line);font-size:19px;font-weight:750;color:#655c50}
+.footer .page-no{color:var(--ink);font-size:23px;font-weight:1000;white-space:nowrap}
+.card{border:3px solid var(--ink);border-radius:29px;background:var(--surface);box-shadow:7px 8px 0 var(--ink)}
+.card.yellow{background:var(--yellow)}.card.blue{background:#d9f6fa}.card.purple{background:#eee7ff}.card.green{background:#e7f6e1}.card.orange{background:#fff0df}.card.dark{background:#2b2825;color:#fff8e8}
+.hero-stage{position:relative;height:650px;margin-top:52px;flex:none;overflow:hidden;border:3px solid var(--ink);border-radius:39px;background:var(--yellow);box-shadow:8px 9px 0 var(--ink)}
+.hero-stage .hero-bear{position:absolute;right:44px;top:14px;width:460px;height:480px;object-fit:contain}
+.hero-stage .big-orbit{position:absolute;width:560px;height:560px;right:-100px;top:-150px;border:3px dashed #201d1a63;border-radius:50%}
+.capsule{display:flex;align-items:center;gap:18px;padding:21px 25px;border:3px solid var(--ink);border-radius:30px;background:#2a2724;color:#fff;font-size:26px;font-weight:900;box-shadow:6px 7px 0 #201d1a68}
+.capsule .signal{width:16px;height:16px;flex:none;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 6px #f5c84b42}
+.capsule .clock{margin-left:auto;color:#ffe292;font-size:22px;white-space:nowrap}
+.hero-stage .capsule{position:absolute;left:54px;right:54px;bottom:42px}
+.bear#p01 .kicker{margin-top:36px;margin-bottom:16px}
+.bear#p01 h1{font-size:88px;line-height:1.07;margin-bottom:16px}
+.bear#p01 .lead{font-size:30px;line-height:1.38}
+.bear#p01 .hero-stage{height:505px;margin-top:30px}
+.bear#p01 .hero-stage .hero-bear{width:390px;height:380px;top:2px}
+.bear#p01 .hero-stage .capsule{bottom:25px}
+.bear#p01 .hero-stage .big-orbit{width:420px;height:420px;right:0;top:-120px}
+.bear#p01 .tag-row{margin-top:20px}
+.bear#p01 .tag-row span{padding:8px 12px;font-size:19px}
+.tag-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:28px}
+.tag-row span{padding:11px 16px;border:2px solid var(--ink);border-radius:999px;background:#fff;font-size:22px;font-weight:850}
+.mock-board{margin-top:48px;padding:27px 32px;background:var(--surface)}
+.mock-board .board-head{display:flex;justify-content:space-between;align-items:center;gap:15px;padding-bottom:19px;border-bottom:2px solid var(--line);font-size:26px;font-weight:1000}
+.board-head small{font-size:20px;color:#766d60}
+.task-row{display:flex;align-items:center;gap:17px;padding:25px 0;border-bottom:2px dashed var(--line);font-size:27px;font-weight:850}
+.task-row:last-child{border-bottom:0}
+.dot{width:18px;height:18px;flex:none;border-radius:50%;background:var(--purple)}.dot.orange-dot{background:#e9ac26}.dot.blue-dot{background:#45c6d8}.dot.green-dot{background:#7ac986}.dot.red-dot{background:#e97c76}
+.task-row .task-label{margin-left:auto;padding:8px 14px;border:2px solid var(--ink);border-radius:999px;background:#fff0b9;font-size:19px;font-weight:900;white-space:nowrap}
+.task-row .task-label.running{background:#d7f6fb}.task-row .task-label.queued{background:#eee8ff}
+.note{margin-top:30px;padding:23px 27px;border:2px solid var(--ink);border-radius:22px;background:#fff;box-shadow:4px 5px 0 var(--ink);font-size:28px;line-height:1.45;font-weight:730}
+.note b{font-weight:1000}
+.big-art-card{display:grid;grid-template-columns:49% 51%;align-items:center;gap:0;min-height:520px;margin-top:62px;padding:35px;overflow:hidden}
+.big-art-card img{width:100%;height:420px;object-fit:contain}
+.big-art-card .art-copy{padding:20px 10px 20px 24px}
+.big-art-card .art-copy strong{display:block;font-size:47px;line-height:1.15;letter-spacing:-.05em}
+.big-art-card .art-copy p{margin:22px 0 0;font-size:31px;line-height:1.42;font-weight:720}
+.stack{display:flex;flex-direction:column;gap:22px;margin-top:52px}
+.stack-card{display:flex;align-items:center;gap:22px;padding:26px 29px;border:3px solid var(--ink);border-radius:26px;background:#fff;box-shadow:5px 6px 0 var(--ink)}
+.stack-card .icon{display:grid;place-items:center;width:72px;height:72px;flex:none;border:2px solid var(--ink);border-radius:20px;background:var(--yellow);font-size:36px;font-weight:900}
+.stack-card strong{display:block;font-size:33px;line-height:1.2}
+.stack-card p{margin:9px 0 0;color:var(--ink-2);font-size:24px;line-height:1.38;font-weight:680}
+.stage-figure{height:380px;margin-top:50px;display:grid;place-items:center;overflow:hidden}
+.stage-figure img{width:420px;height:370px;object-fit:contain}
+.alert-card{margin-top:20px;padding:30px 34px;font-size:30px;line-height:1.4;font-weight:800}
+.alert-card small{display:block;margin-top:8px;color:#776c60;font-size:22px;font-weight:700}
+.step-arrow{display:flex;align-items:center;justify-content:center;gap:17px;margin-top:60px;font-size:28px;font-weight:850}
+.step-arrow span{padding:18px;border:2px solid var(--ink);border-radius:18px;background:#fff}
+.step-arrow b{font-size:42px}
+.source-list{display:flex;flex-direction:column;gap:20px;margin-top:48px}
+.source-card{padding:24px 28px;border:3px solid var(--ink);border-radius:23px;background:#fff;box-shadow:5px 6px 0 var(--ink)}
+.source-card strong{display:block;margin-bottom:8px;font-size:31px}
+.source-card p{margin:0;color:var(--ink-2);font-size:25px;line-height:1.4;font-weight:690}
+.source-card:nth-child(2){background:#eeecff}.source-card:nth-child(3){background:#f0ece5}
+.flow-list{display:flex;flex-direction:column;gap:24px;margin-top:52px}
+.flow-item{display:flex;align-items:flex-start;gap:24px;padding:27px 30px;border:3px solid var(--ink);border-radius:26px;background:#fff;box-shadow:5px 6px 0 var(--ink)}
+.flow-item:nth-child(2){background:#fff0c5}.flow-item:nth-child(3){background:#e8f5e6}
+.flow-no{display:grid;place-items:center;width:68px;height:68px;flex:none;border:2px solid var(--ink);border-radius:17px;background:#ffad7f;font-size:30px;font-weight:1000}
+.flow-item strong{display:block;font-size:31px}.flow-item p{margin:10px 0 0;color:var(--ink-2);font-size:25px;line-height:1.4;font-weight:680}
+.status-list{display:flex;flex-direction:column;gap:18px;margin-top:45px}
+.status-card{display:flex;align-items:center;gap:20px;min-height:216px;padding:14px 22px;border:3px solid var(--ink);border-radius:25px;background:#fff;box-shadow:4px 5px 0 var(--ink)}
+.status-card img{width:195px;height:185px;object-fit:contain;flex:none}
+.status-card .status-copy{flex:1}.status-card strong{display:block;font-size:35px}.status-card p{margin:8px 0 0;color:var(--ink-2);font-size:25px;line-height:1.35;font-weight:700}
+.status-card.purple{background:#eee8ff}.status-card.blue{background:#dcf7fb}.status-card.yellow{background:#fff1b9}.status-card.green{background:#e4f5de}.status-card.red{background:#ffe7e0}.status-card.gray{background:#eeece8}
+.status-card.no-art{padding:25px 28px;min-height:180px}
+.status-card.no-art .status-symbol{display:grid;place-items:center;width:150px;height:130px;flex:none;border:3px solid var(--ink);border-radius:26px;background:#fff;font-size:58px}
+.neutral-mark{display:grid;place-items:center;width:170px;height:170px;border:5px solid var(--ink);border-radius:52px;background:var(--yellow);box-shadow:10px 11px 0 var(--ink);font-size:100px;font-weight:800;transform:rotate(-7deg)}
+.neutral-hero{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;height:560px;margin-top:64px;border:3px solid var(--ink);border-radius:35px;background:var(--yellow);box-shadow:8px 9px 0 var(--ink)}
+.neutral-hero .capsule{width:82%}
+.neutral-preview{width:76%;padding:18px 24px;border:3px solid var(--ink);border-radius:25px;background:#fffdf8;box-shadow:6px 7px 0 #201d1a66;transform:rotate(-1deg)}
+.neutral-preview .board-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:2px solid var(--line);font-size:22px;font-weight:900}
+.neutral-preview .board-head small{font-size:17px;color:#756b60}
+.neutral-preview .task-row{gap:12px;padding:13px 0;font-size:20px}
+.neutral-preview .task-row .task-label{padding:5px 10px;font-size:16px}
+.neutral-preview .dot{width:14px;height:14px}
+.principle-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:55px}
+.principle{min-height:260px;padding:28px;border:3px solid var(--ink);border-radius:27px;background:#fff;box-shadow:5px 6px 0 var(--ink)}
+.principle:nth-child(2){background:#dff7f9}.principle:nth-child(3){background:#fff0cc}.principle:nth-child(4){background:#efe9ff}
+.principle .symbol{display:grid;place-items:center;width:67px;height:67px;margin-bottom:23px;border:2px solid var(--ink);border-radius:19px;background:#fff;font-size:35px}
+.principle strong{font-size:32px}.principle p{margin:13px 0 0;font-size:24px;line-height:1.37;color:var(--ink-2);font-weight:680}
+.theme-canvas{display:flex;align-items:center;justify-content:center;gap:27px;min-height:460px;margin-top:65px;padding:36px;border:3px solid var(--ink);border-radius:33px;background:#fff;box-shadow:7px 8px 0 var(--ink)}
+.theme-box{display:grid;place-items:center;width:180px;height:180px;flex:none;border:3px solid var(--ink);border-radius:35px;background:var(--yellow);font-size:85px;font-weight:1000}
+.theme-box:nth-child(2){background:var(--blue)}.theme-box:nth-child(3){background:var(--purple)}
+.theme-arrow{font-size:54px;font-weight:1000}
+.neutral-states{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:63px}
+.neutral-state{display:flex;align-items:center;gap:18px;padding:27px;border:3px solid var(--ink);border-radius:24px;background:#fff;box-shadow:4px 5px 0 var(--ink);font-size:31px;font-weight:900}
+.neutral-state:last-child{grid-column:1/-1}
+.neutral-state i{width:24px;height:24px;flex:none;border:2px solid var(--ink);border-radius:50%;background:var(--purple)}
+.neutral-state.running i{background:var(--blue)}.neutral-state.blocked i{background:var(--yellow)}.neutral-state.done i{background:var(--green)}.neutral-state.failed i{background:var(--red)}
+.repo-card{margin-top:60px;padding:36px;border:3px solid var(--ink);border-radius:29px;background:var(--yellow);box-shadow:7px 8px 0 var(--ink)}
+.repo-card strong{display:block;font-size:38px}.repo-card p{margin:20px 0 0;font-size:27px;line-height:1.45;font-weight:700}.repo-card code{display:block;margin-top:24px;overflow-wrap:anywhere;font-size:22px;font-weight:850}
+.parallel-page .kicker{margin-top:42px;margin-bottom:15px}
+.parallel-page h2{font-size:66px;line-height:1.12;margin-bottom:15px}
+.parallel-page .lead{font-size:29px;line-height:1.36}
+.parallel-stage{height:690px;flex:none;margin-top:28px;padding:23px;border:3px solid var(--ink);border-radius:35px;background:var(--yellow);box-shadow:7px 8px 0 var(--ink)}
+.mac-bar{height:138px;padding:17px 25px;border:3px solid var(--ink);border-radius:27px;background:#f7f4ed;box-shadow:4px 5px 0 #201d1a54}
+.mac-bar-head{display:flex;justify-content:space-between;align-items:center;color:#665b4c;font-size:19px;font-weight:900}
+.mac-capsule{display:flex;align-items:center;justify-content:center;gap:14px;width:640px;height:69px;margin:4px auto 0;padding:0 22px;border:3px solid var(--ink);border-radius:999px;background:#292624;color:#fff;font-size:27px;font-weight:950;box-shadow:4px 5px 0 #201d1a4c}
+.running-dots{display:flex;gap:5px;margin-right:5px}.running-dots i{width:13px;height:13px;border-radius:50%;background:#55cde0;box-shadow:0 0 0 2px #55cde036}
+.mac-capsule small{margin-left:auto;color:#9ce9f3;font-size:18px;font-weight:850}
+.parallel-panel{height:475px;margin:26px 39px 0;padding:22px 27px 16px;border:3px solid var(--ink);border-radius:28px;background:#fffdf7;box-shadow:6px 7px 0 #201d1a58}
+.parallel-panel-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:13px;border-bottom:2px solid var(--line)}
+.parallel-panel-head strong{font-size:29px}.parallel-panel-head span{font-size:18px;font-weight:850;color:#6b6258}
+.parallel-panel-head img{width:58px;height:58px;object-fit:contain;margin-left:auto}
+.parallel-row{display:flex;align-items:center;gap:14px;min-height:88px;padding:9px 0;border-bottom:2px dashed var(--line)}
+.parallel-row:last-child{border-bottom:0}
+.parallel-row .running-dot{width:17px;height:17px;flex:none;border-radius:50%;background:#49c8db;box-shadow:0 0 0 4px #49c8db33}
+.parallel-row .row-main{flex:1;min-width:0}.parallel-row strong{display:block;font-size:24px;line-height:1.22}.parallel-row small{display:block;margin-top:5px;color:#6b6258;font-size:18px;font-weight:690}
+.parallel-row .row-state{padding:7px 12px;border:2px solid var(--ink);border-radius:999px;background:#d7f6fb;font-size:18px;font-weight:900;white-space:nowrap}
+.parallel-note{margin-top:25px;padding:19px 23px;border:2px solid var(--ink);border-radius:20px;background:#fff;font-size:25px;line-height:1.4;font-weight:750}
+@media print{html,body{background:#fff}body{display:block;padding:0}.sheet{margin:0;page-break-after:always}}
+</style></head><body><section class="sheet neutral " id="p01"><div class="page-inner"><div class="topline"><div class="logo"><span class="logo-mark">✳</span>AGENT ISLAND</div><span class="top-pill">开源项目记录</span></div>
+      <p class="kicker">MACOS · MULTI-AGENT TASK BOARD</p>
+      <h1>把多个 Agent<br>的任务状态，<br><span class="accent">收进一枚小胶囊。</span></h1>
+      <p class="lead">一个可自定义主题的 macOS Agent 看板项目。开源核心已公开。</p>
+      <div class="neutral-hero"><div class="capsule"><i class="signal"></i>3 个任务需要关注<span class="clock">08:42</span></div>
+        <div class="neutral-preview"><div class="board-head"><strong>Agent 任务一览</strong><small>界面示意</small></div>
+          <div class="task-row"><i class="dot orange-dot"></i><span>合同摘要整理</span><span class="task-label">等你确认</span></div>
+          <div class="task-row"><i class="dot blue-dot"></i><span>重构任务列表</span><span class="task-label running">运行中</span></div>
+          <div class="task-row"><i class="dot"></i><span>批量生成封面</span><span class="task-label queued">排队中</span></div>
+        </div>
+      </div>
+    <div class="footer"><span>界面示意 · 示例任务为虚构</span><span class="page-no">01 / 08</span></div></div></section>
+<section class="sheet neutral parallel-page" id="p02"><div class="page-inner"><div class="topline"><span>四路并行场景</span><span class="top-pill">产品设计预览</span></div>
+      <p class="kicker">场景演示 · 4 AGENTS RUNNING</p>
+      <h2>四个 Agent 同时跑，<br>胶囊怎么显示？</h2>
+      <p class="lead">顶部汇总为“4 个运行中”；展开后逐个查看任务、来源和最近活动。</p>
+      <div class="parallel-stage">
+        <div class="mac-bar"><div class="mac-bar-head"><span>Mac 顶部 · 胶囊示意</span><span>09:41</span></div>
+          <div class="mac-capsule"><span class="running-dots"><i></i><i></i><i></i><i></i></span><strong>4 个 Agent 正在运行</strong><small>展开 ▾</small></div>
+        </div>
+        <div class="parallel-panel"><div class="parallel-panel-head"><strong>Agent 任务一览</strong><span>4 路运行中 · 演示数据</span></div><div class="parallel-row"><i class="running-dot"></i><div class="row-main"><strong>Codex · 重构任务列表</strong><small>本地只读 · 08:42</small></div><span class="row-state">运行中</span></div><div class="parallel-row"><i class="running-dot"></i><div class="row-main"><strong>WorkBuddy · 合同摘要整理</strong><small>本地只读 · 08:41</small></div><span class="row-state">运行中</span></div><div class="parallel-row"><i class="running-dot"></i><div class="row-main"><strong>自定义 Agent A · 批量生成封面</strong><small>标准连接 · 08:40</small></div><span class="row-state">运行中</span></div><div class="parallel-row"><i class="running-dot"></i><div class="row-main"><strong>自定义 Agent B · 整理资料索引</strong><small>标准连接 · 08:39</small></div><span class="row-state">运行中</span></div></div>
+      </div>
+      <div class="parallel-note">胶囊显示总体状态；展开面板保留每个 Agent 的任务与来源。运行中不等于已完成。</div>
+    <div class="footer"><span>界面示意 · 示例任务为虚构</span><span class="page-no">02 / 08</span></div></div></section>
+<section class="sheet neutral " id="p03"><div class="page-inner"><div class="topline"><span>设计原则</span><span class="top-pill">产品设计预览</span></div>
+      <p class="kicker">设计原则</p><h2>看板要解决的<br>四件事</h2>
+      <div class="principle-grid">
+        <div class="principle"><span class="symbol">◌</span><strong>只读优先</strong><p>读取任务信号，不替你批准操作。</p></div>
+        <div class="principle"><span class="symbol">⌁</span><strong>状态有证据</strong><p>只有可靠终态，才报告完成或失败。</p></div>
+        <div class="principle"><span class="symbol">!</span><strong>断连说清楚</strong><p>来源失联时，不显示成“暂无任务”。</p></div>
+        <div class="principle"><span class="symbol">✳</span><strong>主题可替换</strong><p>视觉角色和状态语义分开维护。</p></div>
+      </div>
+      <div class="note">任务状态、证据和提醒放在核心；颜色、图形和角色交给主题。</div>
+    <div class="footer"><span>界面示意 · 示例任务为虚构</span><span class="page-no">03 / 08</span></div></div></section>
+<section class="sheet neutral " id="p04"><div class="page-inner"><div class="topline"><span>主题系统 01 / 03</span><span class="top-pill">产品设计预览</span></div>
+      <p class="kicker">主题系统 01 / 03</p><h2>通用核心，<br>先把状态管好。</h2>
+      <p class="lead">状态归一化、来源健康、通知去重和连接器契约，由开源代码提供。</p>
+      <div class="stack">
+        <div class="stack-card"><span class="icon">≡</span><div><strong>状态归一化</strong><p>不同来源的任务，转换为统一状态。</p></div></div>
+        <div class="stack-card"><span class="icon">◎</span><div><strong>来源健康</strong><p>过期或失联时，明确标记状态待确认。</p></div></div>
+        <div class="stack-card"><span class="icon">♪</span><div><strong>通知去重</strong><p>等待确认与可靠终态只提醒一次。</p></div></div>
+      </div>
+    <div class="footer"><span>界面示意 · 示例任务为虚构</span><span class="page-no">04 / 08</span></div></div></section>
+<section class="sheet neutral " id="p05"><div class="page-inner"><div class="topline"><span>主题系统 02 / 03</span><span class="top-pill">产品设计预览</span></div>
+      <p class="kicker">主题系统 02 / 03</p><h2>默认主题，<br>保持中性。</h2>
+      <p class="lead">公开仓库只包含颜色、几何图形和占位文案，不包含第三方角色素材。</p>
+      <div class="theme-canvas"><span class="theme-box">◌</span><span class="theme-box">✦</span><span class="theme-box">＋</span></div>
+      <div class="note">看板传递信息靠状态文字、颜色和证据等级，不依赖某一个 IP。</div>
+    <div class="footer"><span>界面示意 · 示例任务为虚构</span><span class="page-no">05 / 08</span></div></div></section>
+<section class="sheet neutral " id="p06"><div class="page-inner"><div class="topline"><span>主题系统 03 / 03</span><span class="top-pill">产品设计预览</span></div>
+      <p class="kicker">主题系统 03 / 03</p><h2>视觉角色，<br>由你决定。</h2>
+      <p class="lead">本地可导入自己有权使用的角色、图片、名称和 Logo，替换默认主题。</p>
+      <div class="theme-canvas"><span class="neutral-mark">✳</span><span class="theme-arrow">→</span><span class="theme-box">＋</span></div>
+      <div class="note">代码许可证只覆盖代码；导入的主题素材需要各自确认授权范围。</div>
+    <div class="footer"><span>界面示意 · 示例任务为虚构</span><span class="page-no">06 / 08</span></div></div></section>
+<section class="sheet neutral " id="p07"><div class="page-inner"><div class="topline"><span>状态契约</span><span class="top-pill">产品设计预览</span></div>
+      <p class="kicker">状态契约</p><h2>视觉可以换，<br>状态语义不变。</h2>
+      <p class="lead small-lead">角色负责表达气氛；状态文字、颜色和证据等级共同承担信息。</p>
+      <div class="neutral-states">
+        <div class="neutral-state"><i></i>排队中</div><div class="neutral-state running"><i></i>运行中</div>
+        <div class="neutral-state blocked"><i></i>等你确认</div><div class="neutral-state done"><i></i>已完成</div>
+        <div class="neutral-state failed"><i></i>失败了</div>
+      </div>
+      <div class="note">断线、过期或无法判断时，显示“状态待确认”。</div>
+    <div class="footer"><span>界面示意 · 示例任务为虚构</span><span class="page-no">07 / 08</span></div></div></section>
+<section class="sheet neutral " id="p08"><div class="page-inner"><div class="topline"><span>结尾</span><span class="top-pill">产品设计预览</span></div>
+      <p class="kicker">开源项目进度</p><h2>代码开源，<br>主题由你决定。</h2>
+      <p class="lead">仓库提供主题模板和素材接口。状态核心可构建并自检；完整桌面 UI 与连接器仍在开发。</p>
+      <div class="repo-card"><strong>Agent Island / GitHub</strong><p>可查看源码、示例事件、支持范围和当前限制。</p><code>github.com/958378126-cell/agent-island</code></div>
+      <div class="note">宣传页展示的是信息架构与虚构示例任务，不是真实连接器的录屏。</div>
+    <div class="footer"><span>界面示意 · 示例任务为虚构</span><span class="page-no">08 / 08</span></div></div></section></body></html>

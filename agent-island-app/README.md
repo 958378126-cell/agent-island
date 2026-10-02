@@ -1,31 +1,64 @@
-# Agent Island
+# Agent Island Desktop App
 
-Agent Island 是一个 macOS 顶部任务看板的开源核心与产品预览。当前仓库公开的是可复现的状态归一化核心、提醒去重规则、示例事件、主题接口和不含第三方 IP 的静态宣传页；完整的桌面胶囊 UI 与各厂商连接器仍在接入阶段，不能把宣传页中的演示任务当成真实同步结果。
+这是 Agent Island 的公开 macOS 桌面实现。它不携带任何第三方 IP 素材，默认状态头像使用 SF Symbols；任务监控、连接器和主题层彼此分离，用户可以在私有主题中替换头像。
 
-## 现在可以验证什么
+## 构建与运行
 
-在 macOS 13 或更高版本运行：
+要求 macOS 15+、Swift 6：
 
 ```sh
 swift build -c release
-swift run -c release agent-island-tests
-swift run -c release agent-island-selftest
+./.build/release/AgentIsland --selftest --root .
+./.build/release/AgentIsland --smoke 3 --demo
+./Scripts/make-app.sh
+open ./dist/AgentIsland.app
 ```
 
-核心包会验证三条发布底线：只有明确终态证据才能报告完成/失败；过期的运行快照会降为“状态待确认”并标记来源失联；等待确认、完成和失败通知对同一任务状态只发一次，历史导入不补发通知。
+普通启动不读取源码目录中的样例，而是读取：
 
-示例事件见 [`examples/tasks.example.jsonl`](examples/tasks.example.jsonl)。它们是虚构数据，不能代表任何已接通的 Agent。
+```text
+~/Library/Application Support/AgentIsland/tasks.jsonl
+~/Library/Application Support/AgentIsland/agents.json
+~/Library/Application Support/AgentIsland/position.json
+```
 
-## 支持范围
+`--demo` 显式加载 [`examples/desktop-tasks.example.jsonl`](examples/desktop-tasks.example.jsonl)。它只用于演示，不代表真实 Agent 已接通。
 
-当前支持矩阵和每个来源的证据等级见 [`docs/SUPPORT_MATRIX.md`](docs/SUPPORT_MATRIX.md)。默认策略是只读：不替用户批准操作，不从“进程存在”推断任务完成，也不会把断连显示成“暂无任务”。
+## 已实现功能
 
-隐私边界、数据位置和删除方法见 [`docs/PRIVACY.md`](docs/PRIVACY.md)。公开发布前请阅读 [`ASSETS_LICENSE.md`](ASSETS_LICENSE.md)：代码许可证不自动覆盖用户自行导入的主题素材。
+- 顶部悬浮胶囊和可展开任务面板
+- 任务文件监听、状态归一化、通知去重和位置记忆
+- Codex Desktop / CLI 的本地 rollout 只读识别
+- `codex app-server` 进程回退识别
+- HTTP JSON、JSONL 文件、命令 JSONL 三种连接器
+- 中性 SF Symbol 状态头像和减弱动态效果支持
+- `--selftest`、`--smoke` 和 Core 回归测试
 
-## 宣传页与演示
+## Codex 数据边界
 
-在本地打开 [`../promo/index.html`](../promo/index.html) 可查看不含第三方 IP 的交互式状态演示。页面中的任务、时间和来源均为虚构 fixture；它展示的是信息架构和状态文案，不是已连接的真实产品录屏。主题模板见 [`../promo/THEME_TEMPLATE.md`](../promo/THEME_TEMPLATE.md)。
+App 只读扫描 `~/.codex/sessions/**/*.jsonl`，根据 `event_msg` 中的启动/终止事件判断当前回合是否活跃；不会读取提示词正文，不会向 Codex 发请求，也不会替用户批准操作。会话目录不可读、Codex 输出格式变化或系统权限不足时，任务可能不会显示。
 
-## 现阶段限制
+## 自定义连接器
 
-仓库尚未包含可签名的 `.app` 或已验证覆盖全部桌面 Agent 的连接器。要发布二进制，需要另行完成干净用户账户安装、升级、卸载、通知权限、多显示器和网络断开验收；素材授权完成后才能公开分发宣传页图片。
+先阅读 [`CONNECTORS.md`](CONNECTORS.md)，再复制 [`config/agents.example.json`](config/agents.example.json) 到：
+
+```text
+~/Library/Application Support/AgentIsland/agents.json
+```
+
+也可以点击展开面板底部的「＋ 添加 Agent 接口」。连接器默认只读，令牌通过环境变量注入，不写入配置文件。
+
+## 私有主题
+
+主题图片不放进仓库。把 `theme.json` 和自有 PNG 放到
+`~/Library/Application Support/AgentIsland/theme/`，或设置 `AGENT_ISLAND_THEME` 指向主题目录/manifest；格式见 [`themes/README.md`](themes/README.md)。
+
+## 主题授权
+
+公开构建不包含第三方角色、熊图、Logo 或名称素材。代码许可证不覆盖用户自行导入的主题。请将私有素材放在仓库外，并在自己的主题包中保存授权凭证和许可证说明。
+
+## 已知限制
+
+- 当前只提供未签名的本地 `.app` 打包脚本，不提供公证安装包。
+- Codex、WorkBuddy、AutoClaw 等本地路径属于只读适配，客户端升级后需要重新验证。
+- 公开版不会把进程存在当成任务完成，也不会把没有终态证据的任务标记为成功。
